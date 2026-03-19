@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project - Alex Tan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/alextangnt.css">
+</head>
+<body class="project-page">
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar__row">
+        <a class="brand" href="index.html" aria-label="Alex Tan home">
+          <img class="brand-mark" src="https://static.wixstatic.com/media/28d0cf_0da10570cd974c33ba03492a86a67c4c~mv2.png/v1/fill/w_93,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rat_logo_aartemus_stamp_1.png" alt="Aartemus stamp logo">
+          <span class="brand-text">ALEX TAN</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div id="site-menu" class="topbar__panel" aria-hidden="true">
+        <nav class="menu-panel__inner" aria-label="Site">
+          <a href="index.html">HOME</a>
+          <a href="index.html#work">PORTFOLIO</a>
+          <a href="about.html">ABOUT</a>
+          <a href="contact.html">CONTACT</a>
+        </nav>
+        <div class="menu-panel__footer">
+          <p><em>Creatively driven multimedia artist focused on the intersection of technology and art.</em></p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="project-display">
+        <div class="project-display__frame" id="projectFrame"></div>
+        <a class="project-display__arrow project-display__arrow--left" id="projectPrev" href="#" aria-label="Previous project">←</a>
+        <a class="project-display__arrow project-display__arrow--right" id="projectNext" href="#" aria-label="Next project">→</a>
+        <button class="project-info-bar" id="projectInfoBar" type="button" aria-expanded="false">
+          <div class="project-info-bar__text">
+            <div class="project-info-bar__title">
+              <a class="project-info-bar__gallery" href="index.html#work" aria-label="Back to gallery">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+              </a>
+              <h1 id="projectTitle">Project Title</h1>
+              <span class="project-info-bar__date" id="projectDate">2025</span>
+            </div>
+            <div class="project-info-bar__meta">
+              <span class="project-info-bar__tags" id="projectTag">Interactive / Animation / Design</span>
+              <p id="projectSummary">Short description of the project, its goal, and the tools used.</p>
+            </div>
+          </div>
+          <div class="project-info-bar__extra" id="projectExtra">
+            <p class="project-info-bar__desc" id="projectDescription">Longer description of the project goes here.</p>
+            <p><strong>Tools:</strong> <span id="projectTools">p5.js, After Effects, Premiere</span></p>
+            <p><strong>Role:</strong> <span id="projectRole">Concept, Design, Development</span></p>
+          </div>
+          <span class="project-info-bar__toggle" aria-hidden="true">More</span>
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/site.js"></script>
+  <script src="js/project.js"></script>
+</body>
+</html>
