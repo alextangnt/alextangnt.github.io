@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-page-html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@
       </div>
     </header>
 
-    <main>
+    <main class="project-scroll" id="projectScroll">
       <section class="project-display">
         <div class="project-display__frame" id="projectFrame"></div>
         <a class="project-display__arrow project-display__arrow--left" id="projectPrev" href="#" aria-label="Previous project">←</a>
@@ -56,7 +56,6 @@
             </div>
             <div class="project-info-bar__meta">
               <span class="project-info-bar__tags" id="projectTag">Interactive / Animation / Design</span>
-              <p id="projectSummary">Short description of the project, its goal, and the tools used.</p>
             </div>
           </div>
           <div class="project-info-bar__extra" id="projectExtra">
@@ -67,9 +66,22 @@
           <span class="project-info-bar__toggle" aria-hidden="true">More</span>
         </button>
       </section>
+
+      <section class="project-details" id="projectDetails">
+        <div class="project-details__gallery">
+          <h2>Gallery</h2>
+          <div class="project-gallery" id="projectGallery"></div>
+        </div>
+        <div class="project-details__body">
+          <h2>Notes</h2>
+          <div class="project-body" id="projectBody"></div>
+          <div class="project-links" id="projectLinks"></div>
+        </div>
+      </section>
     </main>
   </div>
 
+  <script src="js/project-data.js"></script>
   <script src="js/site.js"></script>
   <script src="js/project.js"></script>
 </body>

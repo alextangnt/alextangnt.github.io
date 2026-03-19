@@ -1,30 +1,15 @@
-const projects = [
-  {
-    title: "Finger Lickin' Good",
-    tags: "Creative Coding, Procedural Animation, p5.js",
-    date: "2024",
-    image: "assets/gifs/finger_lickin_good.gif",
-    link: "project.html?project=finger-lickin-good"
-  },
-  {
-    title: "Typewriter Vision",
-    tags: "Interactive Storytelling, p5.js, WebGL",
-    date: "2024",
-    image: "assets/gifs/typewriter_vision.gif",
-    link: "project.html?project=typewriter-vision"
-  },
-  {
-    title: "Case I-70",
-    tags: "Interactive Storytelling / Illustration / p5.js",
-    date: "2024",
-    image: "assets/gifs/case_I-70.gif",
-    link: "project.html?project=case-i-70"
-  }
-];
+const projectLibrary = window.projectLibrary || {};
+const projects = Object.values(projectLibrary).map((project) => ({
+  title: project.title,
+  tags: project.tag,
+  date: project.year,
+  image: project.image,
+  link: project.link
+}));
 
 const grid = document.getElementById("workGrid");
 
-if (grid) {
+if (grid && projects.length) {
   grid.innerHTML = projects
     .map(
       (project) => `
