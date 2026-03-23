@@ -154,10 +154,35 @@ if (projectContent) {
     }
   }
   if (date) date.textContent = projectContent.year || "2024";
+const renderDescription = (text, useMarkdown = false) => {
+  if (!description) return;
+  if (useMarkdown && window.marked) {
+    description.innerHTML = window.marked.parse(text);
+  } else {
+    description.textContent = text;
+  }
+};
+
 if (description) {
-  description.textContent =
+  const rawDescription =
     projectContent.description ||
     "Longer description of the project goes here.";
+
+  if (
+    typeof rawDescription === "string" &&
+    rawDescription.trim().toLowerCase().endsWith(".md")
+  ) {
+    fetch(rawDescription)
+      .then((response) => (response.ok ? response.text() : Promise.reject(response)))
+      .then((markdown) => renderDescription(markdown, true))
+      .catch(() => renderDescription(rawDescription, false));
+  } else {
+    const shouldParse =
+      typeof rawDescription === "string" &&
+      window.marked &&
+      /[#*_`\\[]/.test(rawDescription);
+    renderDescription(rawDescription, shouldParse);
+  }
 }
 
 if (galleryGrid) {

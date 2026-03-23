@@ -1,9 +1,9 @@
 window.projectLibrary = {
     "dialomic": {
     "title": "Dialomic",
-    "tag": "three.js / Web Design / Twine Tooling",
+    "tag": "THREE.js / Creative Tools / Twine Tooling",
     "description": "Dialomic is a web tool for Twine html that allows a text based story to turn into an interactive webcomic.",
-    "tools": "Three.js, HTML, Twine Sugarcube Story Format",
+    "tools": "THREE.js, HTML, Twine Sugarcube Story Format",
     "role": "Concept, Design, Development",
     "year": "2026",
     "image": "assets/gifs/dialomic.gif",
@@ -17,6 +17,29 @@ window.projectLibrary = {
     "views": {
       "site": {
         "src": "https://alextangnt.github.io/dialomic/"
+      }
+    },
+    "fullPage": false
+  },
+    "case-i-70": {
+    "title": "Case I-70",
+    "tag": "Interactive Storytelling / Illustration / p5.js",
+    "description": "The story of two detectives at covert government agency through documents in an interactive case file.",
+    "tools": "p5.js, Clip Studio Paint",
+    "role": "Concept, Design, Development",
+    "year": "2024",
+    "image": "assets/gifs/case_i-70.gif",
+    "link": "project.html?project=case-i-70",
+    "gallery": [],
+    "body": [
+      "Please interact with the applet above!",
+      "Follow the story of two detectives at covert government agency through documents in an interactive case file using P5js and HTML. Explore the cold case by flipping through a collaged combination of rewritten FBI memorandum and my own illustrations.",
+      "For the atmosphere of this project, all fonts used are extracted from time-accurate documents, and the images are edited and textured digitally.."
+    ],
+    "links": [],
+    "views": {
+      "p5": {
+        "src": "projects/Case I-70/index.html"
       }
     },
     "fullPage": false
@@ -63,29 +86,7 @@ window.projectLibrary = {
     },
     "fullPage": true
   },
-  "case-i-70": {
-    "title": "Case I-70",
-    "tag": "Interactive Storytelling / Illustration / p5.js",
-    "description": "The story of two detectives at covert government agency through documents in an interactive case file.",
-    "tools": "p5.js, Clip Studio Paint",
-    "role": "Concept, Design, Development",
-    "year": "2024",
-    "image": "assets/gifs/case_i-70.gif",
-    "link": "project.html?project=case-i-70",
-    "gallery": [],
-    "body": [
-      "Please interact with the applet above!",
-      "Follow the story of two detectives at covert government agency through documents in an interactive case file using P5js and HTML. Explore the cold case by flipping through a collaged combination of rewritten FBI memorandum and my own illustrations.",
-      "For the atmosphere of this project, all fonts used are extracted from time-accurate documents, and the images are edited and textured digitally.."
-    ],
-    "links": [],
-    "views": {
-      "p5": {
-        "src": "projects/Case I-70/index.html"
-      }
-    },
-    "fullPage": false
-  },
+
   "the-bitter": {
     "title": "The Bitter",
     "tag": "3D Modeling and Rigging, Interactive Storytelling, Concept Art",
@@ -230,40 +231,31 @@ window.projectLibrary = {
     },
     "fullPage": true
   },
-  "technical-character-animation": {
-    "title": "Technical Character Animation",
-    "tag": "3D Animation Reel",
-    "description": "02:03 Body Mechanics 2",
-    "tools": "",
+    "bowing-out": {
+    "title": "Bowing Out",
+    "tag": "3D Animation Pipeline, Modeling, Rigging, Animation",
+    "description": "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take... Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
+    "tools": "Maya, ZBrush",
     "role": "",
-    "year": "Fall 2024",
-    "image": "https://static.wixstatic.com/media/28d0cf_6c824b3e74704a68a8801ce72da70fa2~mv2.gif",
-    "link": "project.html?project=technical-character-animation",
-    "gallery": [],
+    "year": "2024",
+    "image": "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif",
+    "link": "project.html?project=bowing-out",
+    "gallery": [
+      "https://static.wixstatic.com/media/28d0cf_5047d0af47ad495fb3840fd4e54a28f4~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_06a99cb763d140e2bbcde13b5d47bb9e~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_befd44cfdcc84f20ac5dbe688acf8079~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_bfb0d979a68f4df9b12128a3bacdebdf~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_ffc420fe577049c2970aef640ebad84c~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif"
+    ],
     "body": [
-      "02:03 Body Mechanics 2",
-      "Ultimate Bony Rig",
-      "06:14 Body Mechanics 1",
-      "Ultimate Bony Rig",
-      "14:09 Style Walk",
-      "Ultimate Bony Rig",
-      "18.02 Sidestep",
-      "Ultimate Beefy Rig",
-      "21:07 Vanilla Walk Cycle",
-      "Ultimate Walker Rig",
-      "26:03 Ball and Tail/Squid",
-      "CMU Squid Rig",
-      "31:12 Pendulum/Paddle and Tail",
-      "CMU Pendulum Rig",
-      "37:19 Ball Bounce 2 (Heavy Ball/Light Ball)",
-      "CMU Simple Ball Rig",
-      "44:12 Ball Bounce 1",
-      "CMU Simple Ball Rig"
+      "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
+      "Please check out this article following how I turn this model into a Camera Motion Trackable .vrm format: https://medium.com/@alextangnt/creating-a-full-body-camera-motion-tracking-3d-model-94671373e66c"
     ],
     "links": [],
     "views": {
       "video": {
-        "src": "https://video.wixstatic.com/video/28d0cf_27e6553f4a35458aafd8700706d25997/1080p/mp4/file.mp4"
+        "src": "https://video.wixstatic.com/video/28d0cf_ff16bd5c7c8e498eb53158757611599e/1080p/mp4/file.mp4"
       }
     },
     "fullPage": false
@@ -347,31 +339,41 @@ window.projectLibrary = {
     },
     "fullPage": true
   },
-  "bowing-out": {
-    "title": "Bowing Out",
-    "tag": "3D Animation Pipeline, Modeling, Rigging, Animation",
-    "description": "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take... Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
-    "tools": "Maya, ZBrush",
+
+  "technical-character-animation": {
+    "title": "Technical Character Animation",
+    "tag": "3D Animation Reel",
+    "description": "02:03 Body Mechanics 2",
+    "tools": "",
     "role": "",
-    "year": "2024",
-    "image": "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif",
-    "link": "project.html?project=bowing-out",
-    "gallery": [
-      "https://static.wixstatic.com/media/28d0cf_5047d0af47ad495fb3840fd4e54a28f4~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_06a99cb763d140e2bbcde13b5d47bb9e~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_befd44cfdcc84f20ac5dbe688acf8079~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_bfb0d979a68f4df9b12128a3bacdebdf~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_ffc420fe577049c2970aef640ebad84c~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif"
-    ],
+    "year": "Fall 2024",
+    "image": "https://static.wixstatic.com/media/28d0cf_6c824b3e74704a68a8801ce72da70fa2~mv2.gif",
+    "link": "project.html?project=technical-character-animation",
+    "gallery": [],
     "body": [
-      "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
-      "Please check out this article following how I turn this model into a Camera Motion Trackable .vrm format: https://medium.com/@alextangnt/creating-a-full-body-camera-motion-tracking-3d-model-94671373e66c"
+      "02:03 Body Mechanics 2",
+      "Ultimate Bony Rig",
+      "06:14 Body Mechanics 1",
+      "Ultimate Bony Rig",
+      "14:09 Style Walk",
+      "Ultimate Bony Rig",
+      "18.02 Sidestep",
+      "Ultimate Beefy Rig",
+      "21:07 Vanilla Walk Cycle",
+      "Ultimate Walker Rig",
+      "26:03 Ball and Tail/Squid",
+      "CMU Squid Rig",
+      "31:12 Pendulum/Paddle and Tail",
+      "CMU Pendulum Rig",
+      "37:19 Ball Bounce 2 (Heavy Ball/Light Ball)",
+      "CMU Simple Ball Rig",
+      "44:12 Ball Bounce 1",
+      "CMU Simple Ball Rig"
     ],
     "links": [],
     "views": {
       "video": {
-        "src": "https://video.wixstatic.com/video/28d0cf_ff16bd5c7c8e498eb53158757611599e/1080p/mp4/file.mp4"
+        "src": "https://video.wixstatic.com/video/28d0cf_27e6553f4a35458aafd8700706d25997/1080p/mp4/file.mp4"
       }
     },
     "fullPage": false
