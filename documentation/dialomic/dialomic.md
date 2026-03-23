@@ -1,3 +1,5 @@
+Try it the site by itself here: https://alextangnt.github.io/dialomic/
+
 This project began because I wanted to make a storytelling tool for artists. I like comics, I like interactive media, I like games and funky little clickable tools, but I’m not very good at making games. I like picking through the capabilities of tools people give me and see how funnily I can make them spin. By making a tool *I* can use, that my friends and I can use, I’m shortcutting the “What do I use to tell my story” step that I always deliberate on.
 
 ![Template that translates Twine html (below) into visual “webcomic” format, generating a random three.js box per node](https://miro.medium.com/v2/resize:fit:1280/format:webp/1*jT4NkjpcLR5z5InjlLv8Mg.gif)![Running the text only Twine .html file](https://miro.medium.com/v2/resize:fit:1280/format:webp/1*VyeRhqvG0sk6zif_QAm3fQ.gif)

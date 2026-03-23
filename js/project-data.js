@@ -5,7 +5,7 @@ window.projectLibrary = {
     "description": "Dialomic is a web tool for writers and artists to create interactive webcomics. Based on Twine.",
     "tools": "THREE.js, HTML, Twine Sugarcube Story Format",
     "role": "Concept, Design, Development",
-    "year": "2026",
+    "year": "2026+",
     "image": "assets/gifs/dialomic.gif",
     "link": "project.html?project=dialomic",
     "gallery": [],
@@ -25,7 +25,7 @@ window.projectLibrary = {
     "tools": "p5.js, Clip Studio Paint",
     "role": "Concept, Design, Development",
     "year": "2024",
-    "image": "assets/gifs/caseI70.gif",
+    "image": "assets/gifs/casei70.gif",
     "link": "project.html?project=case-i-70",
     "gallery": [],
     "body": [
@@ -37,6 +37,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/Case I-70/index.html"
+      },
+      "video" : {
+        "src": "https://video.wixstatic.com/video/28d0cf_c2fc5a3104354a408d5d85a89e7ee259/1080p/mp4/file.mp4"
       }
     },
     "fullPage": false
@@ -58,6 +61,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/Finger Lickin' Good/index.html"
+      },
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_fb7f582a7ea1483da78d64cd4a61e1f4/1080p/mp4/file.mp4"
       }
     },
     "fullPage": true
@@ -77,6 +83,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/Typewriter Vision/index.html"
+      },
+      "video": {
+        "src": "assets/videos/typewritervision.mov"
       }
     },
     "fullPage": true
@@ -88,7 +97,7 @@ window.projectLibrary = {
     "description": "The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea. This is a personal project that I began preparation work in the Spring semester of 2025. The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea, between two ships.",
     "tools": "Maya, Unity, Blender",
     "role": "Concept Artist, Modeler",
-    "year": "Spring 2025 +",
+    "year": "Spring 2025+",
     "image": "https://static.wixstatic.com/media/28d0cf_ac1006fa4f4d4fea8d15000c6ac6254d~mv2.png",
     "link": "project.html?project=the-bitter",
     "gallery": [
@@ -251,6 +260,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/specu-scoper5000/index.html"
+      },
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_89ef0a73ea054a948767dd097e7c7c67/1080p/mp4/file.mp4"
       }
     },
     "embedStyle": {
@@ -281,6 +293,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/memory garbage collection"
+      },
+      "video": {
+        "src": "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif"
       }
     },
     "fullPage": true
@@ -330,6 +345,9 @@ window.projectLibrary = {
     "views": {
       "p5": {
         "src": "projects/sunjackp5js"
+      },
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_a45891c47168477aba3904986d91beb3/1080p/mp4/file.mp4"
       }
     },
     "fullPage": true

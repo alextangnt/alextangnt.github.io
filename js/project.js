@@ -41,6 +41,9 @@ const lightboxNext = document.getElementById("lightboxNext");
 let lightboxIndex = 0;
 let lightboxItems = [];
 const projectScroll = document.getElementById("projectScroll");
+const viewToggle = document.getElementById("viewToggle");
+const viewKeys = Object.keys(projectContent?.views || {});
+const hasP5View = viewKeys.some((key) => key.toLowerCase() === "p5");
 
 const updateInfoBarHeight = () => {
   if (!infoBar) return;
@@ -93,6 +96,18 @@ function renderView(key) {
   const src = view.site || view.src;
 
   frame.innerHTML = "";
+  if (display) {
+    const isVideoView =
+      hasP5View && (key.toLowerCase() === "video" || kind === "video");
+    display.classList.toggle("is-video-contained", isVideoView);
+    if (projectContent.fullPage === false) {
+      display.classList.add("is-contained");
+      document.body.classList.add("project-contained");
+    } else if (!display.classList.contains("is-video-contained")) {
+      display.classList.remove("is-contained");
+      document.body.classList.remove("project-contained");
+    }
+  }
 
   if (kind === "iframe") {
     const iframe = document.createElement("iframe");
@@ -482,7 +497,6 @@ if (projectContent) {
     display.classList.add("is-contained");
     document.body.classList.add("project-contained");
   }
-  const viewKeys = Object.keys(projectContent.views || {});
   const ranked = viewKeys
     .map((key) => {
       const kind = getViewKind(projectContent.views[key]);
@@ -491,7 +505,36 @@ if (projectContent) {
       return { key, score: score === -1 ? 99 : score };
     })
     .sort((a, b) => a.score - b.score);
+  const videoKey =
+    viewKeys.find((key) => key.toLowerCase() === "video") ||
+    viewKeys.find((key) => getViewKind(projectContent.views[key]) === "video");
   const defaultKey = ranked[0] ? ranked[0].key : null;
-  if (defaultKey) renderView(defaultKey);
+  const initialKey = hasP5View && videoKey ? videoKey : defaultKey;
+  if (initialKey) renderView(initialKey);
+
+  if (viewToggle) {
+    const p5Key = viewKeys.find((key) => key.toLowerCase() === "p5");
+
+    if (p5Key) {
+      let currentKey = initialKey === p5Key ? p5Key : videoKey || p5Key;
+      const hasVideo = Boolean(videoKey);
+      viewToggle.disabled = !hasVideo;
+      viewToggle.textContent = currentKey === videoKey ? "VIEW P5" : "VIEW VIDEO";
+      viewToggle.classList.remove("is-hidden");
+      viewToggle.style.display = "inline-flex";
+      viewToggle.setAttribute("aria-disabled", String(!hasVideo));
+      viewToggle.classList.toggle("is-disabled", !hasVideo);
+      if (hasVideo) {
+        viewToggle.addEventListener("click", () => {
+          currentKey = currentKey === videoKey ? p5Key : videoKey;
+          renderView(currentKey);
+          viewToggle.textContent = currentKey === videoKey ? "VIEW P5" : "VIEW VIDEO";
+        });
+      }
+    } else {
+      viewToggle.classList.add("is-hidden");
+      viewToggle.style.display = "none";
+    }
+  }
 }
 })();
