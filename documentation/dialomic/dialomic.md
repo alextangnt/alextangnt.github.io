@@ -18,16 +18,20 @@ There's something I really love about Twine, and that's how powerful it is, whil
 ### Making Twine work for me
 ![Twine app GUI with examples of Twine Sugarcube formatting](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Rn53v6zbWyNyQWdVDuOqIw.png)![How it compiles into a runnable .html](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*wgPxm19IpxbotVPNq_gZBA.png)![Part of messaging script I attach to that .html file. Controls clicking links, restarts, etc.](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*LzKQ5Z8nhnEezGdbktk_Rg.png)![:passageend is an event that Sugarcube .html files will send out when the passage finishes loading in the iframe](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*SOPT6sAeruWV1j8DzoVHyQ.png)
 
-So now, I have code that reads from a headless Sugarcube-compiled .html file as a logic engine, and a p5js file that is sent passages. A click onto this p5js canvas simulates a click into the hidden Sugarcube iframe. It’s clean, it’s stupid, it works.
+So now, I have code that reads from a headless Sugarcube-compiled .html file as a logic engine, and a p5js file creates panels and recieves passages. A click onto this p5js canvas simulates a click into the hidden Sugarcube iframe. It’s clean, it’s stupid, it works.
 
 The next step is making something that actually looks nice. I wanted users of my tool to be able to import 3D models + bgs + objects with preset poses that they could procedurally tell, within some Twine code, how to pose and frame themselves within a comic panel. How do I incorporate both 3D and 2D graphics at all? three.js!
 
-My current template generates a random cube + bg color just as a proof of concept (per panel). When you revisit a panel, it shows the same object as before.
+![Cubes!](https://miro.medium.com/v2/resize:fit:1280/format:webp/1*jT4NkjpcLR5z5InjlLv8Mg.gif)
+
+The template above generates a random cube + bg color just as a proof of concept (per panel). When you revisit a panel, it shows the same object as before. As we can see, Twine variables and logic are still handled correctly, and I have full access to them from my .js files using postMessage.
 
 Next, after importing some very simple placeholder 3d models and objects and scenes, I will be integrating scene composition based on variables users set in Twine. I already can access variables as soon as they are updated per node.
 
 ## STEP 2
 ### Set the scene
+
+Firstly, let's get p5js out of here. I'm experimenting with a few models, but I got Codex to translate all my p5js into raw HTML, CSS, and JS. This definitely sped up the rendering! After writing all my base code, I started getting comfortable getting an AI assistant to help me debug and work through code problems that I otherwise wouldn't have known how to approach.
 
 While I would love for rigged models to be imported into scenes, then placed in neat environments with total control over lighting and camera and whatnot, I decided to scale down my prototype into something simple for a user to control.
 
@@ -44,13 +48,13 @@ Publishing to the web and an interface overhaul!
 
 ![New UI. Includes restart button and a file import](ui.png)
 
-This next step is about how I want to present my tool to the user. After some research and consultation from Codex, it turns out I can't compile Twine's .twee native files into Sugarcube HTML files in the browser, because [Tweego](https://www.motoslave.net/tweego/) is a CLI. This just means that the user has to import an already compiled .html file from the app, which is just an additional step. 
+This next step is about how I want to present my tool to the user. After some research and consultation from an LLM, it turns out I can't compile Twine's .twee native files into Sugarcube HTML files in the browser, because [Tweego](https://www.motoslave.net/tweego/) is a CLI. This just means that the user has to import an already compiled .html file from the app, which is just an additional step. 
 
 ![Imported file working!](imported.png)
 
 Nonetheless, I added a UI bar at the top of Dialomic for users to import their own .html stories to run instead of my default tutorialish file!
 
-Finally, I published the file on Github pages here: https://alextangnt.github.io/dialomic/
+Finally, with Codex's help setting up a GitHub workflow and a Vite server to start scripts, I published the file on GitHub pages here: https://alextangnt.github.io/dialomic/
 
 
 ## NEXT STEPS
