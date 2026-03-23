@@ -406,6 +406,36 @@ body {
   font-size: 1.05rem;
 }
 
+
+.about-page .about-points {
+  display: grid;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.about-page .about-point {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+}
+
+.about-page .about-point h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.about-page .about-point p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-page .about-point span {
+  font-style: italic;
+  color: var(--muted-strong);
+  font-size: 0.95rem;
+}
+
 .hero__actions {
   display: flex;
   position: relative;
