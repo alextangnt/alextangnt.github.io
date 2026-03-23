@@ -40,6 +40,18 @@ const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
 let lightboxIndex = 0;
 let lightboxItems = [];
+const projectScroll = document.getElementById("projectScroll");
+
+const updateInfoBarHeight = () => {
+  if (!infoBar) return;
+  if (infoBar.classList.contains("is-open") || infoBar.classList.contains("is-title-hover")) {
+    return;
+  }
+  const currentHeight = infoBar.getBoundingClientRect().height;
+  if (!currentHeight) return;
+  infoBar.dataset.collapsedHeight = String(currentHeight);
+  document.documentElement.style.setProperty("--info-bar-height", `${currentHeight}px`);
+};
 
 // Scroll locking is handled by the project-scroll container and body classes.
 const toggles = Array.from(document.querySelectorAll(".view-toggle"));
@@ -217,7 +229,7 @@ if (galleryGrid) {
   });
 }
 
-const renderBody = (html) => {
+const renderBody = (html, baseUrl = null) => {
   if (!bodyContainer) return;
   bodyContainer.innerHTML = html;
 
@@ -234,6 +246,20 @@ const renderBody = (html) => {
     figure.appendChild(img);
     figure.appendChild(figcaption);
   });
+
+  if (baseUrl) {
+    images.forEach((img) => {
+      const src = img.getAttribute("src") || "";
+      if (!src) return;
+      if (/^(https?:|data:|\/)/i.test(src)) return;
+      try {
+        const resolved = new URL(src, baseUrl).toString();
+        img.setAttribute("src", resolved);
+      } catch {
+        return;
+      }
+    });
+  }
 };
 
 if (bodyContainer) {
@@ -241,10 +267,14 @@ if (bodyContainer) {
 
   if (typeof rawBody === "string") {
     if (rawBody.trim().toLowerCase().endsWith(".md")) {
+      const baseUrl = new URL(rawBody, window.location.href);
       fetch(rawBody)
         .then((response) => (response.ok ? response.text() : Promise.reject(response)))
         .then((markdown) =>
-          renderBody(window.marked ? window.marked.parse(markdown) : `<p>${markdown}</p>`)
+          renderBody(
+            window.marked ? window.marked.parse(markdown) : `<p>${markdown}</p>`,
+            baseUrl
+          )
         )
         .catch(() => renderBody(`<p>${rawBody}</p>`));
     } else if (window.marked && /[#*_`\\[]/.test(rawBody)) {
@@ -282,9 +312,13 @@ if (infoBar) {
     infoBar.classList.toggle("is-open", nowOpen);
     infoBar.setAttribute("aria-expanded", String(nowOpen));
     if (!nowOpen) {
+      infoBar.classList.add("is-collapsing");
       infoBar.classList.remove("is-title-hover");
       infoBar.classList.add("is-hover-suppressed");
       suppressTitleHover = true;
+      window.setTimeout(() => {
+        infoBar.classList.remove("is-collapsing");
+      }, 250);
     } else {
       infoBar.classList.remove("is-hover-suppressed");
     }
@@ -303,6 +337,11 @@ if (infoBar) {
     if (nowOpen && detailsSection) {
       detailsSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    if (!nowOpen) {
+      window.setTimeout(() => {
+        requestAnimationFrame(updateInfoBarHeight);
+      }, 260);
+    }
   });
 }
 
@@ -319,6 +358,7 @@ if (backToTop) {
 if (infoBar && infoTitle) {
   infoTitle.addEventListener("mouseenter", () => {
     if (suppressTitleHover) return;
+    if (infoBar.classList.contains("is-open")) return;
     infoBar.classList.add("is-title-hover");
   });
 }
@@ -326,16 +366,30 @@ if (infoBar && infoTitle) {
 if (infoBar) {
   infoBar.addEventListener("mouseenter", () => {
     if (suppressTitleHover) return;
+    if (infoBar.classList.contains("is-open")) return;
+    infoBar.classList.remove("is-collapsing");
+    infoBar.classList.remove("is-hover-suppressed");
     if (!infoBar.classList.contains("is-open")) {
       infoBar.classList.add("is-title-hover");
     }
   });
   infoBar.addEventListener("mouseleave", () => {
     suppressTitleHover = false;
-    infoBar.classList.remove("is-hover-suppressed");
+    if (infoBar.classList.contains("is-open")) return;
+    infoBar.classList.add("is-collapsing");
     infoBar.classList.remove("is-title-hover");
+    window.setTimeout(() => {
+      infoBar.classList.remove("is-collapsing");
+      infoBar.classList.add("is-hover-suppressed");
+      requestAnimationFrame(updateInfoBarHeight);
+    }, 250);
   });
 }
+
+updateInfoBarHeight();
+window.addEventListener("resize", () => {
+  requestAnimationFrame(updateInfoBarHeight);
+});
 
 
 function openLightbox(index) {

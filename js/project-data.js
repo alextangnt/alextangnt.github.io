@@ -9,7 +9,7 @@ window.projectLibrary = {
     "image": "assets/gifs/dialomic.gif",
     "link": "project.html?project=dialomic",
     "gallery": [],
-    "body": "documentation/dialomic.md",
+    "body": "documentation/dialomic/dialomic.md",
     "links": [],
     "views": {
       "site": {
@@ -44,8 +44,8 @@ window.projectLibrary = {
   "finger-lickin-good": {
     "title": "Finger Lickin' Good",
     "tag": "Creative Coding / Procedural Animation / p5.js",
-    "description": "Have you ever wanted to eat your fingers, bite them off, or turn them into laffy taffy-like physics items using your mouth? Turn on your camera!",
-    "tools": "p5.js, ML5 Next-Gen facial + body tracking",
+    "description": "Turn on your camera! Have you ever wanted to eat your fingers, bite them off, or turn them into laffy taffy-like physics items using your mouth?",
+    "tools": "p5.js, ML5 Next-Gen facial + body tracking, Matter.js physics",
     "role": "Concept, Design, Development",
     "year": "2024",
     "image": "assets/gifs/finger_lickin_good.gif",
@@ -65,7 +65,7 @@ window.projectLibrary = {
   "typewriter-vision": {
     "title": "Typewriter Vision",
     "tag": "Interactive Storytelling / WebGL / p5.js",
-    "description": "A kinetic camera-based visual experiment with typographic motion and depth.",
+    "description": "Turn on your camera! A kinetic camera-based visual experiment with distressed typography. A version of an ascii filter.",
     "tools": "p5.js, WebGL",
     "role": "Concept, Design, Development",
     "year": "Spring 2026",
@@ -85,9 +85,9 @@ window.projectLibrary = {
   "the-bitter": {
     "title": "The Bitter",
     "tag": "3D Modeling and Rigging, Interactive Storytelling, Concept Art",
-    "description": "This is a personal project that I began preparation work in the Spring semester of 2025. The Bitter will be an interactive snapshot of a... This is a personal project that I began preparation work in the Spring semester of 2025. The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea, between two ships.",
-    "tools": "",
-    "role": "",
+    "description": "The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea. This is a personal project that I began preparation work in the Spring semester of 2025. The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea, between two ships.",
+    "tools": "Maya, Unity, Blender",
+    "role": "Concept Artist, Modeler",
     "year": "Spring 2025 +",
     "image": "https://static.wixstatic.com/media/28d0cf_ac1006fa4f4d4fea8d15000c6ac6254d~mv2.png",
     "link": "project.html?project=the-bitter",
@@ -104,10 +104,7 @@ window.projectLibrary = {
       "https://static.wixstatic.com/media/28d0cf_ca0cdf2398e848c889391ed2e50d3c6a~mv2.png",
       "https://static.wixstatic.com/media/28d0cf_9f2b5c26aa4647668ea387a6986ff5cc~mv2.png"
     ],
-    "body": [
-      "This is a personal project that I began preparation work in the Spring semester of 2025. The Bitter will be an interactive snapshot of a maritime horror story that takes place in the middle of the sea, between two ships.",
-      "The main focus of my initial stages is to refine my skills in technical look development (starting with concept art. By learning different 3D process, real-time rendering, shaders) and developing a story (historical research, relevant media), I hope to encapsulate a general atmosphere over making a fully fledged game."
-    ],
+    "body": "documentation/thebitter/thebitter.md",
     "links": [],
     "views": {
       "video": {
