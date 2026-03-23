@@ -13,6 +13,7 @@ const projectContent = projectLibrary[resolvedKey];
 const currentIndex = Math.max(0, projectKeys.indexOf(resolvedKey));
 
 const frame = document.getElementById("projectFrame");
+const display = document.querySelector(".project-display");
 const title = document.getElementById("projectTitle");
 const tag = document.getElementById("projectTag");
 const tools = document.getElementById("projectTools");
@@ -22,35 +23,77 @@ const description = document.getElementById("projectDescription");
 const prevLink = document.getElementById("projectPrev");
 const nextLink = document.getElementById("projectNext");
 const infoBar = document.getElementById("projectInfoBar");
+let suppressTitleHover = false;
+const infoTitle = document.querySelector(".project-info-bar__title");
 const pageBody = document.body;
 const pageHtml = document.documentElement;
 const detailsSection = document.getElementById("projectDetails");
 const galleryGrid = document.getElementById("projectGallery");
 const bodyContainer = document.getElementById("projectBody");
 const linksContainer = document.getElementById("projectLinks");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxVideo = document.getElementById("lightboxVideo");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+let lightboxIndex = 0;
+let lightboxItems = [];
 
 // Scroll locking is handled by the project-scroll container and body classes.
 const toggles = Array.from(document.querySelectorAll(".view-toggle"));
 
+function getViewKind(view) {
+  if (!view) return null;
+  if (view.html) return "html";
+  if (view.site) return "iframe";
+  if (view.src) {
+    const src = view.src.toLowerCase();
+    if (
+      src.includes("video.wixstatic.com") ||
+      src.endsWith(".mp4") ||
+      src.endsWith(".mov") ||
+      src.endsWith(".webm")
+    ) {
+      return "video";
+    }
+    if (
+      src.includes("static.wixstatic.com/media") ||
+      src.endsWith(".png") ||
+      src.endsWith(".jpg") ||
+      src.endsWith(".jpeg") ||
+      src.endsWith(".gif") ||
+      src.endsWith(".webp") ||
+      src.endsWith(".svg")
+    ) {
+      return "image";
+    }
+    return "iframe";
+  }
+  return null;
+}
+
 function renderView(key) {
   const view = projectContent.views[key];
   if (!frame || !view) return;
+  const kind = getViewKind(view);
+  const src = view.site || view.src;
 
   frame.innerHTML = "";
 
-  if (view.type === "iframe") {
+  if (kind === "iframe") {
     const iframe = document.createElement("iframe");
-    iframe.src = view.src;
+    iframe.src = src;
     iframe.title = `${projectContent.title} view`;
     iframe.loading = "lazy";
     iframe.allow = "fullscreen";
     frame.appendChild(iframe);
   }
 
-  if (view.type === "video") {
+  if (kind === "video") {
     const video = document.createElement("video");
     video.controls = true;
-    video.src = view.src;
+    video.src = src;
     if (view.poster) video.poster = view.poster;
     video.style.width = "100%";
     video.style.height = "100%";
@@ -58,23 +101,14 @@ function renderView(key) {
     frame.appendChild(video);
   }
 
-  if (view.type === "image") {
+  if (kind === "image") {
     const img = document.createElement("img");
-    img.src = view.src;
+    img.src = src;
     img.alt = projectContent.title;
     frame.appendChild(img);
   }
 
-  if (view.type === "embed") {
-    const iframe = document.createElement("iframe");
-    iframe.src = view.src;
-    iframe.title = `${projectContent.title} embed`;
-    iframe.loading = "lazy";
-    iframe.allow = "fullscreen; autoplay; encrypted-media";
-    frame.appendChild(iframe);
-  }
-
-  if (view.type === "html") {
+  if (kind === "html") {
     frame.innerHTML = view.html;
     const hasEmbedStyle =
       projectContent.embedStyle && projectContent.embedStyle.background;
@@ -109,7 +143,16 @@ if (!projectContent) {
 if (projectContent) {
   if (tag) tag.textContent = projectContent.tag;
   if (tools) tools.textContent = projectContent.tools || "p5.js";
-  if (role) role.textContent = projectContent.role || "Concept, Design, Development";
+  if (role) {
+    if (projectContent.role) {
+      role.textContent = projectContent.role;
+      const roleRow = role.closest("p");
+      if (roleRow) roleRow.style.display = "";
+    } else {
+      const roleRow = role.closest("p");
+      if (roleRow) roleRow.style.display = "none";
+    }
+  }
   if (date) date.textContent = projectContent.year || "2024";
 if (description) {
   description.textContent =
@@ -118,9 +161,34 @@ if (description) {
 }
 
 if (galleryGrid) {
-  galleryGrid.innerHTML = (projectContent.gallery || [])
-    .map((src) => `<img src="${src}" alt="${projectContent.title} gallery image">`)
+  const isVideo = (src) =>
+    /video\\.wixstatic\\.com|\\.mp4$|\\.mov$|\\.webm$/i.test(src || "");
+  lightboxItems = (projectContent.gallery || []).map((src) => ({
+    src,
+    type: isVideo(src) ? "video" : "image"
+  }));
+  if (!lightboxItems.length) {
+    const gallerySection = galleryGrid.closest(".project-details__gallery");
+    if (gallerySection) gallerySection.style.display = "none";
+  }
+  galleryGrid.innerHTML = lightboxItems
+    .map((item, index) => {
+      if (item.type === "video") {
+        return `<button class="project-gallery__item project-gallery__item--video" type="button" data-index="${index}"><video src="${item.src}" muted playsinline autoplay loop preload="auto"></video></button>`;
+      }
+      return `<button class="project-gallery__item" type="button" data-index="${index}"><img src="${item.src}" alt="${projectContent.title} gallery image"></button>`;
+    })
     .join("");
+
+  const galleryVideos = galleryGrid.querySelectorAll("video");
+  galleryVideos.forEach((video) => {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.preload = "auto";
+    video.play().catch(() => {});
+  });
 }
 
 if (bodyContainer) {
@@ -149,6 +217,13 @@ if (infoBar) {
     const nowOpen = !isOpen;
     infoBar.classList.toggle("is-open", nowOpen);
     infoBar.setAttribute("aria-expanded", String(nowOpen));
+    if (!nowOpen) {
+      infoBar.classList.remove("is-title-hover");
+      infoBar.classList.add("is-hover-suppressed");
+      suppressTitleHover = true;
+    } else {
+      infoBar.classList.remove("is-hover-suppressed");
+    }
     if (pageBody) {
       pageBody.classList.toggle("is-scroll", nowOpen);
     }
@@ -164,6 +239,96 @@ if (infoBar) {
     if (nowOpen && detailsSection) {
       detailsSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  });
+}
+
+if (infoBar && infoTitle) {
+  infoTitle.addEventListener("mouseenter", () => {
+    if (suppressTitleHover) return;
+    infoBar.classList.add("is-title-hover");
+  });
+}
+
+if (infoBar) {
+  infoBar.addEventListener("mouseenter", () => {
+    if (suppressTitleHover) return;
+    if (!infoBar.classList.contains("is-open")) {
+      infoBar.classList.add("is-title-hover");
+    }
+  });
+  infoBar.addEventListener("mouseleave", () => {
+    suppressTitleHover = false;
+    infoBar.classList.remove("is-hover-suppressed");
+    infoBar.classList.remove("is-title-hover");
+  });
+}
+
+
+function openLightbox(index) {
+  if (!lightbox || !lightboxItems.length) return;
+  lightboxIndex = index;
+  const item = lightboxItems[lightboxIndex];
+  if (item.type === "video") {
+    if (lightboxVideo) {
+      lightboxVideo.src = item.src;
+      lightboxVideo.style.display = "block";
+    }
+    if (lightboxImage) {
+      lightboxImage.style.display = "none";
+    }
+  } else {
+    if (lightboxImage) {
+      lightboxImage.src = item.src;
+      lightboxImage.style.display = "block";
+    }
+    if (lightboxVideo) {
+      lightboxVideo.style.display = "none";
+      lightboxVideo.removeAttribute("src");
+    }
+  }
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+}
+
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  if (lightboxVideo) {
+    lightboxVideo.pause();
+  }
+}
+
+function showLightbox(delta) {
+  if (!lightboxItems.length) return;
+  lightboxIndex = (lightboxIndex + delta + lightboxItems.length) % lightboxItems.length;
+  openLightbox(lightboxIndex);
+}
+
+if (galleryGrid) {
+  galleryGrid.addEventListener("click", (event) => {
+    const target = event.target.closest(".project-gallery__item");
+    if (!target) return;
+    const index = Number(target.dataset.index || 0);
+    openLightbox(index);
+  });
+}
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxPrev) {
+  lightboxPrev.addEventListener("click", () => showLightbox(-1));
+}
+
+if (lightboxNext) {
+  lightboxNext.addEventListener("click", () => showLightbox(1));
+}
+
+if (lightbox) {
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
   });
 }
 
@@ -185,12 +350,20 @@ if (toggles.length) {
 }
 
 if (projectContent) {
-  const viewKeys = Object.keys(projectContent.views || {});
-  const preferredOrder = ["html", "embed", "video", "image", "p5"];
-  const defaultKey =
-    preferredOrder.find((key) => viewKeys.includes(key)) || viewKeys[0];
-  if (defaultKey) {
-    renderView(defaultKey);
+  if (display && projectContent.fullPage === false) {
+    display.classList.add("is-contained");
+    document.body.classList.add("project-contained");
   }
+  const viewKeys = Object.keys(projectContent.views || {});
+  const ranked = viewKeys
+    .map((key) => {
+      const kind = getViewKind(projectContent.views[key]);
+      const order = ["html", "video", "image", "iframe"];
+      const score = order.indexOf(kind);
+      return { key, score: score === -1 ? 99 : score };
+    })
+    .sort((a, b) => a.score - b.score);
+  const defaultKey = ranked[0] ? ranked[0].key : null;
+  if (defaultKey) renderView(defaultKey);
 }
 })();

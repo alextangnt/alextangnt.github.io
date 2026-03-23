@@ -1,45 +1,67 @@
 window.projectLibrary = {
+    "dialomic": {
+    "title": "Dialomic",
+    "tag": "three.js / Web Design / Twine Tooling",
+    "description": "Dialomic is a web tool for Twine html that allows a text based story to turn into an interactive webcomic.",
+    "tools": "Three.js, HTML, Twine Sugarcube Story Format",
+    "role": "Concept, Design, Development",
+    "year": "2026",
+    "image": "assets/gifs/dialomic.gif",
+    "link": "project.html?project=dialomic",
+    "gallery": [],
+    "body": [
+      "Dialomic.",
+      "Animal files are sourced from https://davidoreilly.itch.io/everything-library-animals"
+    ],
+    "links": [],
+    "views": {
+      "site": {
+        "src": "https://alextangnt.github.io/dialomic/"
+      }
+    },
+    "fullPage": false
+  },
   "finger-lickin-good": {
     "title": "Finger Lickin' Good",
     "tag": "Creative Coding / Procedural Animation / p5.js",
-    "description": "A playful interactive sketch exploring gestures, sound, and motion. Have you ever wanted to eat your fingers, bite them off, or turn them into laffy taffy-like physics items using your mouth? Well now you can. This project uses templates for ML5-Next-Gen's face and hand tracking, along with the Matter.js physics library to simulate several mouthfuls of actions on your wobbly fingers.",
-    "tools": "p5.js, Web Audio, Touch Designer",
+    "description": "Have you ever wanted to eat your fingers, bite them off, or turn them into laffy taffy-like physics items using your mouth? Turn on your camera!",
+    "tools": "p5.js, ML5 Next-Gen facial + body tracking",
     "role": "Concept, Design, Development",
     "year": "2024",
     "image": "assets/gifs/finger_lickin_good.gif",
     "link": "project.html?project=finger-lickin-good",
     "gallery": [],
     "body": [
-      "This project blends gesture tracking with playful physics. Use this space for longer, blog-style notes about process, inspiration, or technical details."
+      "Well now you can. This project uses templates for ML5-Next-Gen's face and hand tracking, along with the Matter.js physics library to simulate several mouthfuls of actions on your wobbly fingers."
     ],
     "links": [],
     "views": {
       "p5": {
-        "type": "iframe",
         "src": "projects/Finger Lickin' Good/index.html"
       }
-    }
+    },
+    "fullPage": true
   },
   "typewriter-vision": {
     "title": "Typewriter Vision",
     "tag": "Interactive Storytelling / WebGL / p5.js",
-    "description": "A kinetic visual experiment with typographic motion and depth.",
+    "description": "A kinetic camera-based visual experiment with typographic motion and depth.",
     "tools": "p5.js, WebGL",
     "role": "Concept, Design, Development",
-    "year": "2024",
+    "year": "Spring 2026",
     "image": "assets/gifs/typewriter_vision.gif",
     "link": "project.html?project=typewriter-vision",
     "gallery": [],
     "body": [
-      "Add narrative context, research notes, or behind-the-scenes details here. This content appears beneath the project."
+      "A"
     ],
     "links": [],
     "views": {
       "p5": {
-        "type": "iframe",
         "src": "projects/Typewriter Vision/index.html"
       }
-    }
+    },
+    "fullPage": true
   },
   "case-i-70": {
     "title": "Case I-70",
@@ -52,15 +74,17 @@ window.projectLibrary = {
     "link": "project.html?project=case-i-70",
     "gallery": [],
     "body": [
-      "Use this space for blog-style text, production notes, or a write-up about the project."
+      "Please interact with the applet above!",
+      "Follow the story of two detectives at covert government agency through documents in an interactive case file using P5js and HTML. Explore the cold case by flipping through a collaged combination of rewritten FBI memorandum and my own illustrations.",
+      "For the atmosphere of this project, all fonts used are extracted from time-accurate documents, and the images are edited and textured digitally.."
     ],
     "links": [],
     "views": {
       "p5": {
-        "type": "iframe",
         "src": "projects/Case I-70/index.html"
       }
-    }
+    },
+    "fullPage": false
   },
   "the-bitter": {
     "title": "The Bitter",
@@ -90,45 +114,17 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_ac1006fa4f4d4fea8d15000c6ac6254d~mv2.png"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_f97ebf1644a1438086fbe1ea7d039f0f/1080p/mp4/file.mp4"
       }
-    }
-  },
-  "mobile-and-web-design-explorations": {
-    "title": "Mobile and Web Design Explorations",
-    "tag": "UI/UX, Mobile App Design, Web Design, Wireframes",
-    "description": "Various work",
-    "tools": "",
-    "role": "",
-    "year": "2020-2023",
-    "image": "https://static.wixstatic.com/media/28d0cf_9ec6c7324a7c45a7a5c931bfd11c3b17~mv2.png",
-    "link": "project.html?project=mobile-and-web-design-explorations",
-    "gallery": [
-      "https://static.wixstatic.com/media/28d0cf_5b5fe4a0c4a940e0827faee9b50abedd~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_795c334c700d478ab2fb349dd8b9644d~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_97c8c8a533a14efab0a3e1677f18ad6d~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_9ec6c7324a7c45a7a5c931bfd11c3b17~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_54711e8fac5645bc86b3b481850a374b~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_2cbe817aa4a042eb91b41bef23a7b2dd~mv2.png"
-    ],
-    "body": [
-      "Various work"
-    ],
-    "links": [],
-    "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_9ec6c7324a7c45a7a5c931bfd11c3b17~mv2.png"
-      }
-    }
+    },
+    "fullPage": false
   },
   "memory-garbage-collection": {
     "title": "Memory Garbage Collection",
     "tag": "UI, Game Development, Hackathon",
     "description": "Fall 2024 Hackathon project for the theme “Cyberpunk”",
-    "tools": "",
+    "tools": "p5js",
     "role": "",
     "year": "Fall 2024",
     "image": "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif",
@@ -145,17 +141,17 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif"
+      "p5": {
+        "src": "projects/memory garbage collection"
       }
-    }
+    },
+    "fullPage": true
   },
   "general-garium-enforcement": {
     "title": "GENERAL GARIUM ENFORCEMENT",
     "tag": "Game Design, UI/UX, Unity",
     "description": "Your job as a newly promoted GENERAL GARIUM ENFORCER is to ensure that independent construction sites are using materials approved by you... Your job as a newly promoted GENERAL GARIUM ENFORCER is to ensure that independent construction sites are using materials approved by your Bureau. Simple enough, right?",
-    "tools": "",
+    "tools": "Unity, Inky, Twine",
     "role": "",
     "year": "2023",
     "image": "https://static.wixstatic.com/media/28d0cf_59280f9b53094a7c81af59ef657b5d8c~mv2.gif",
@@ -174,18 +170,18 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_59280f9b53094a7c81af59ef657b5d8c~mv2.gif"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_00e671e5d3a5491ab6ff2e5796f3538b/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   },
   "sun-stealers": {
     "title": "Sun-Stealers",
     "tag": "2D Animation, Visual Development, Storyboarding, Character Design",
     "description": "Two mischievous thieves steal a valuable magic \"sun-creature\" from a secretive patron, and deal with hijinks and complications along the... Two mischievous thieves steal a valuable magic \"sun-creature\" from a secretive patron, and deal with hijinks and complications along the way.",
-    "tools": "",
-    "role": "",
+    "tools": "Clip Studio Paint, Photoshop, Premiere Pro",
+    "role": "Storyboarding, Concept Art, Animatic",
     "year": "2023",
     "image": "https://static.wixstatic.com/media/28d0cf_4f7d0c95771e4c1398536a4878582935~mv2.gif",
     "link": "project.html?project=sun-stealers",
@@ -201,25 +197,22 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_4f7d0c95771e4c1398536a4878582935~mv2.gif"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_82e3626624b54b4cb6d63c820d111299/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   },
   "specu-scoper-5000": {
     "title": "SPECU-SCOPER-5000",
     "tag": "UI, Game Development, Hackathon",
     "description": "Fall 2023 Hackathon project for the theme \"Space!\"",
-    "tools": "",
+    "tools": "p5.js, p5play",
     "role": "",
     "year": "Fall 2023",
     "image": "https://static.wixstatic.com/media/28d0cf_f82695c714304374b930e7a3d48b0476~mv2.gif",
     "link": "project.html?project=specu-scoper-5000",
-    "gallery": [
-      "https://video.wixstatic.com/video/28d0cf_89ef0a73ea054a948767dd097e7c7c67/specu-scoper_5000_demovideo.mp4",
-      "https://video.wixstatic.com/video/28d0cf_17f212af0e9445f798b9334322327745/Screen%2520Recording%25202023-09-16%2520at%25202.18.44%2520PM.mov"
-    ],
+    "gallery": [],
     "body": [
       "Fall 2023 Hackathon project for the theme \"Space!\"",
       "Unravel the secrets of real exoplanets by gathering information and running tests in this exploration game to determine if they could harbor life… whether alien, or human colonies!",
@@ -229,13 +222,13 @@ window.projectLibrary = {
     "links": [],
     "views": {
       "p5": {
-        "type": "iframe",
         "src": "projects/specu-scoper5000/index.html"
       }
     },
     "embedStyle": {
       "background": "rgb(24,42,109)"
-    }
+    },
+    "fullPage": true
   },
   "technical-character-animation": {
     "title": "Technical Character Animation",
@@ -269,18 +262,18 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_6c824b3e74704a68a8801ce72da70fa2~mv2.gif"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_27e6553f4a35458aafd8700706d25997/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   },
   "xiang-gao": {
     "title": "XIANG GAO",
     "tag": "2D Animation, Graphic Design, Video Compositing",
     "description": "XIANG GAO is an animated adaptation of the short story ‘向杲’ from the classic short story anthology “Strange Tales from a Chinese Studio.”",
-    "tools": "",
-    "role": "",
+    "tools": "Clip Studio Paint, Premiere Pro",
+    "role": "Concept Art, Keyframes, Graphic Design, Compositing",
     "year": "Spring 2024",
     "image": "https://static.wixstatic.com/media/28d0cf_3cd199579bc5441f8cfb5a91fc35509e~mv2.gif",
     "link": "project.html?project=xiang-gao",
@@ -301,17 +294,17 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_3cd199579bc5441f8cfb5a91fc35509e~mv2.gif"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_c465cc856f9040a6a87e4027657b8e70/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   },
   "tweater": {
     "title": "TWEATER",
     "tag": "Python, Game Design, FFT Algorithm, Procedural Animation",
     "description": "TWEATER is a lighthearted, infinitely scrolling Python game where players control a bird's height with the pitch of their voice to catch... TWEATER is a lighthearted, infinitely scrolling Python game where players control a bird's height with the pitch of their voice to catch bugs and avoid obstacles.",
-    "tools": "",
+    "tools": "Python",
     "role": "",
     "year": "Fall 2022",
     "image": "https://static.wixstatic.com/media/28d0cf_73c8d7e6b01645cdaeeee0e07df0921b~mv2.gif",
@@ -326,25 +319,21 @@ window.projectLibrary = {
     "links": [],
     "views": {
       "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_73c8d7e6b01645cdaeeee0e07df0921b~mv2.gif"
+        "src": "https://video.wixstatic.com/video/28d0cf_7f4f7d1b15ac4f128dde6a6caa0b4602/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   },
   "sunjack": {
     "title": "Sunjack!",
     "tag": "UI, Simulated Physics, Procedural Graphics, Creative Coding",
     "description": "Please interact with the applet above!",
-    "tools": "",
+    "tools": "p5.js, toxiclibs.js",
     "role": "",
     "year": "Fall 2023",
     "image": "https://static.wixstatic.com/media/28d0cf_7817fd2348f6437a9573d330c9555661~mv2.gif",
     "link": "project.html?project=sunjack",
-    "gallery": [
-      "https://video.wixstatic.com/video/28d0cf_da961c2b6f494e74be0ec8a971d41a14/sunjack_videoshort.mov",
-      "https://video.wixstatic.com/video/28d0cf_75d1876a4d7240fda06846fc472a1f47/accordion.mov",
-      "https://video.wixstatic.com/video/28d0cf_d520d585de824d0f8363e9d4d64cbd99/straw.mov"
-    ],
+    "gallery": [],
     "body": [
       "Please interact with the applet above!",
       "Watch out for your mouse! For this interaction showcase of a simulated digital creature, I designed the realistic spring physics and procedural graphics for Sunjack's neck, intending for it to respond like a proper accordion or jack-in-the-box.",
@@ -352,21 +341,17 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_7817fd2348f6437a9573d330c9555661~mv2.gif"
-      },
-      "video": {
-        "type": "video",
-        "src": "https://video.wixstatic.com/video/28d0cf_da961c2b6f494e74be0ec8a971d41a14/sunjack_videoshort.mov"
+      "p5": {
+        "src": "projects/sunjackp5js"
       }
-    }
+    },
+    "fullPage": true
   },
   "bowing-out": {
     "title": "Bowing Out",
     "tag": "3D Animation Pipeline, Modeling, Rigging, Animation",
     "description": "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take... Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
-    "tools": "",
+    "tools": "Maya, ZBrush",
     "role": "",
     "year": "2024",
     "image": "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif",
@@ -385,10 +370,10 @@ window.projectLibrary = {
     ],
     "links": [],
     "views": {
-      "image": {
-        "type": "image",
-        "src": "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif"
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_ff16bd5c7c8e498eb53158757611599e/1080p/mp4/file.mp4"
       }
-    }
+    },
+    "fullPage": false
   }
 };

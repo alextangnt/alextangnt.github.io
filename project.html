@@ -17,9 +17,19 @@
           <img class="brand-mark" src="https://static.wixstatic.com/media/28d0cf_0da10570cd974c33ba03492a86a67c4c~mv2.png/v1/fill/w_93,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rat_logo_aartemus_stamp_1.png" alt="Aartemus stamp logo">
           <span class="brand-text">ALEX TAN</span>
         </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
-          <span class="menu-toggle__icon" aria-hidden="true"></span>
-        </button>
+        <div class="topbar__actions">
+          <a class="topbar__gallery" href="index.html#work" aria-label="Back to gallery">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+          </a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+            <span class="menu-toggle__icon" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
 
       <div id="site-menu" class="topbar__panel" aria-hidden="true">
@@ -43,14 +53,6 @@
         <button class="project-info-bar" id="projectInfoBar" type="button" aria-expanded="false">
           <div class="project-info-bar__text">
             <div class="project-info-bar__title">
-              <a class="project-info-bar__gallery" href="index.html#work" aria-label="Back to gallery">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                  <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-                  <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                </svg>
-              </a>
               <h1 id="projectTitle">Project Title</h1>
               <span class="project-info-bar__date" id="projectDate">2025</span>
             </div>
@@ -63,7 +65,7 @@
             <p><strong>Tools:</strong> <span id="projectTools">p5.js, After Effects, Premiere</span></p>
             <p><strong>Role:</strong> <span id="projectRole">Concept, Design, Development</span></p>
           </div>
-          <span class="project-info-bar__toggle" aria-hidden="true">More</span>
+          <span class="project-info-bar__toggle" data-open="SHOW LESS" data-closed="SHOW MORE"></span>
         </button>
       </section>
 
@@ -79,6 +81,16 @@
         </div>
       </section>
     </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close">×</button>
+      <button class="lightbox__nav lightbox__nav--left" id="lightboxPrev" type="button" aria-label="Previous image">←</button>
+      <div class="lightbox__content">
+        <img id="lightboxImage" alt="">
+        <video id="lightboxVideo" controls playsinline></video>
+      </div>
+      <button class="lightbox__nav lightbox__nav--right" id="lightboxNext" type="button" aria-label="Next image">→</button>
+    </div>
   </div>
 
   <script src="js/project-data.js"></script>

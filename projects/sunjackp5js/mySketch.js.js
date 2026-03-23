@@ -10,10 +10,10 @@
 //there's a small disjoint of the mouse coordinates.
 //see when locked on, eye tracking
 
-heightCanvas = 450*2;
-w = 800*2;
-hh = heightCanvas/2;
-hw = w/2;
+heightCanvas = window.innerHeight;
+w = window.innerWidth;
+hh = heightCanvas / 2;
+hw = w / 2;
 //head size multiplier, bigger for... bigger.
 headMod = 1.2;
 zw = 576*headMod;
@@ -106,10 +106,23 @@ function setup() {
 	face = loadImage("D_face.PNG");
 	cursorImg = loadImage("cursor2.png");
 	noCursor()
-	createCanvas(w, heightCanvas);
+	createCanvas(windowWidth, windowHeight);
+	updateCanvasMetrics();
 	setupNeckPhys();
 	background(255);
 	smoothCurs = 0;
+}
+
+function updateCanvasMetrics() {
+	heightCanvas = windowHeight;
+	w = windowWidth;
+	hh = heightCanvas / 2;
+	hw = w / 2;
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+	updateCanvasMetrics();
 }
 
 function draw() {
