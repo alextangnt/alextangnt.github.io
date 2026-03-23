@@ -25,7 +25,7 @@ window.projectLibrary = {
     "tools": "p5.js, Clip Studio Paint",
     "role": "Concept, Design, Development",
     "year": "2024",
-    "image": "assets/gifs/casei70.gif",
+    "image": "assets/gifs/caseI70.gif",
     "link": "project.html?project=case-i-70",
     "gallery": [],
     "body": [
