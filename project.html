@@ -17,7 +17,8 @@
           <img class="brand-mark" src="https://static.wixstatic.com/media/28d0cf_0da10570cd974c33ba03492a86a67c4c~mv2.png/v1/fill/w_93,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rat_logo_aartemus_stamp_1.png" alt="Aartemus stamp logo">
           <span class="brand-text">ALEX TAN</span>
         </a>
-        <div class="topbar__actions">
+        <div class="topbar__nav">
+          <a class="topbar__nav-btn topbar__nav-btn--prev" id="projectPrev" href="#" aria-label="Previous project">‹</a>
           <a class="topbar__gallery" href="index.html#work" aria-label="Back to gallery">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -26,6 +27,9 @@
               <rect x="14" y="14" width="7" height="7" rx="1"></rect>
             </svg>
           </a>
+          <a class="topbar__nav-btn topbar__nav-btn--next" id="projectNext" href="#" aria-label="Next project">›</a>
+        </div>
+        <div class="topbar__actions">
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
             <span class="menu-toggle__icon" aria-hidden="true"></span>
           </button>
@@ -48,8 +52,6 @@
     <main class="project-scroll" id="projectScroll">
       <section class="project-display">
         <div class="project-display__frame" id="projectFrame"></div>
-        <a class="project-display__arrow project-display__arrow--left" id="projectPrev" href="#" aria-label="Previous project">←</a>
-        <a class="project-display__arrow project-display__arrow--right" id="projectNext" href="#" aria-label="Next project">→</a>
         <button class="project-info-bar" id="projectInfoBar" type="button" aria-expanded="false">
           <div class="project-info-bar__text">
             <div class="project-info-bar__title">
@@ -80,6 +82,26 @@
           <div class="project-links" id="projectLinks"></div>
         </div>
       </section>
+
+      <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+      <footer class="site-footer project-footer">
+        <div class="footer-column">
+          <p class="footer-title">Alex Tan, 2025</p>
+          <p class="footer-copy">Creatively driven multimedia artist focusing on the intersection between technology and art.<br>BCSA, CMU 2026.</p>
+        </div>
+        <div class="footer-column">
+          <p class="footer-title">Contact</p>
+          <p class="footer-copy">Please <a href="https://www.alextangnt.com/contact-8" target="_blank" rel="noreferrer noopener">contact me</a> to discuss a possible project or learn more about my work.</p>
+        </div>
+        <div class="footer-column">
+          <p class="footer-title">Social</p>
+          <p class="footer-copy">
+            <a href="https://instagram.com/aartemus" target="_blank" rel="noreferrer noopener">Instagram</a><br>
+            <a href="https://www.alextangnt.com" target="_blank" rel="noreferrer noopener">Portfolio</a>
+          </p>
+        </div>
+      </footer>
     </main>
 
     <div class="lightbox" id="lightbox" aria-hidden="true">

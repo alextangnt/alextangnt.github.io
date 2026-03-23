@@ -2,17 +2,14 @@ window.projectLibrary = {
     "dialomic": {
     "title": "Dialomic",
     "tag": "THREE.js / Creative Tools / Twine Tooling",
-    "description": "Dialomic is a web tool for Twine html that allows a text based story to turn into an interactive webcomic.",
+    "description": "Dialomic is a web tool for writers and artists to create interactive webcomics. Based on Twine.",
     "tools": "THREE.js, HTML, Twine Sugarcube Story Format",
     "role": "Concept, Design, Development",
     "year": "2026",
     "image": "assets/gifs/dialomic.gif",
     "link": "project.html?project=dialomic",
     "gallery": [],
-    "body": [
-      "Dialomic.",
-      "Animal files are sourced from https://davidoreilly.itch.io/everything-library-animals"
-    ],
+    "body": "documentation/dialomic.md",
     "links": [],
     "views": {
       "site": {
@@ -28,7 +25,7 @@ window.projectLibrary = {
     "tools": "p5.js, Clip Studio Paint",
     "role": "Concept, Design, Development",
     "year": "2024",
-    "image": "assets/gifs/case_i-70.gif",
+    "image": "assets/gifs/casei70.gif",
     "link": "project.html?project=case-i-70",
     "gallery": [],
     "body": [
@@ -75,9 +72,7 @@ window.projectLibrary = {
     "image": "assets/gifs/typewriter_vision.gif",
     "link": "project.html?project=typewriter-vision",
     "gallery": [],
-    "body": [
-      "A"
-    ],
+    "body": "documentation/typewriter_vision.md",
     "links": [],
     "views": {
       "p5": {
@@ -121,33 +116,7 @@ window.projectLibrary = {
     },
     "fullPage": false
   },
-  "memory-garbage-collection": {
-    "title": "Memory Garbage Collection",
-    "tag": "UI, Game Development, Hackathon",
-    "description": "Fall 2024 Hackathon project for the theme “Cyberpunk”",
-    "tools": "p5js",
-    "role": "",
-    "year": "Fall 2024",
-    "image": "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif",
-    "link": "project.html?project=memory-garbage-collection",
-    "gallery": [
-      "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif"
-    ],
-    "body": [
-      "Fall 2024 Hackathon project for the theme “Cyberpunk”",
-      "Turn your camera on! A two player game - player 1 with their hand on camera, player 2 on the keys.  Player 1 takes apart the body, and player 2 enters commands.",
-      "The future is now, but after a bombastic life, our dead bodies brimming with cybernetic enhancements need to be cut free of them before going into the incinerator. It’s your job to do that— or things will get explosive, to say the least!",
-      "Team of 4, made in just over 13 hours",
-      "MOST CREATIVE PRIZE (Sponsor Award by theTradeDesk)"
-    ],
-    "links": [],
-    "views": {
-      "p5": {
-        "src": "projects/memory garbage collection"
-      }
-    },
-    "fullPage": true
-  },
+  
   "general-garium-enforcement": {
     "title": "GENERAL GARIUM ENFORCEMENT",
     "tag": "Game Design, UI/UX, Unity",
@@ -173,6 +142,35 @@ window.projectLibrary = {
     "views": {
       "video": {
         "src": "https://video.wixstatic.com/video/28d0cf_00e671e5d3a5491ab6ff2e5796f3538b/1080p/mp4/file.mp4"
+      }
+    },
+    "fullPage": false
+  },
+  "bowing-out": {
+    "title": "Bowing Out",
+    "tag": "3D Animation Pipeline, Modeling, Rigging, Animation",
+    "description": "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take... Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
+    "tools": "Maya, ZBrush",
+    "role": "",
+    "year": "2024",
+    "image": "assets/gifs/felix.gif",
+    "link": "project.html?project=bowing-out",
+    "gallery": [
+      "https://static.wixstatic.com/media/28d0cf_5047d0af47ad495fb3840fd4e54a28f4~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_06a99cb763d140e2bbcde13b5d47bb9e~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_befd44cfdcc84f20ac5dbe688acf8079~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_bfb0d979a68f4df9b12128a3bacdebdf~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_ffc420fe577049c2970aef640ebad84c~mv2.png",
+      "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif"
+    ],
+    "body": [
+      "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
+      "Please check out this article following how I turn this model into a Camera Motion Trackable .vrm format: https://medium.com/@alextangnt/creating-a-full-body-camera-motion-tracking-3d-model-94671373e66c"
+    ],
+    "links": [],
+    "views": {
+      "video": {
+        "src": "https://video.wixstatic.com/video/28d0cf_ff16bd5c7c8e498eb53158757611599e/1080p/mp4/file.mp4"
       }
     },
     "fullPage": false
@@ -204,65 +202,9 @@ window.projectLibrary = {
     },
     "fullPage": false
   },
-  "specu-scoper-5000": {
-    "title": "SPECU-SCOPER-5000",
-    "tag": "UI, Game Development, Hackathon",
-    "description": "Fall 2023 Hackathon project for the theme \"Space!\"",
-    "tools": "p5.js, p5play",
-    "role": "",
-    "year": "Fall 2023",
-    "image": "https://static.wixstatic.com/media/28d0cf_f82695c714304374b930e7a3d48b0476~mv2.gif",
-    "link": "project.html?project=specu-scoper-5000",
-    "gallery": [],
-    "body": [
-      "Fall 2023 Hackathon project for the theme \"Space!\"",
-      "Unravel the secrets of real exoplanets by gathering information and running tests in this exploration game to determine if they could harbor life… whether alien, or human colonies!",
-      "Team of 4, made in just over 13 hours",
-      "SECOND PLACE WINNER"
-    ],
-    "links": [],
-    "views": {
-      "p5": {
-        "src": "projects/specu-scoper5000/index.html"
-      }
-    },
-    "embedStyle": {
-      "background": "rgb(24,42,109)"
-    },
-    "fullPage": true
-  },
-    "bowing-out": {
-    "title": "Bowing Out",
-    "tag": "3D Animation Pipeline, Modeling, Rigging, Animation",
-    "description": "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take... Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
-    "tools": "Maya, ZBrush",
-    "role": "",
-    "year": "2024",
-    "image": "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif",
-    "link": "project.html?project=bowing-out",
-    "gallery": [
-      "https://static.wixstatic.com/media/28d0cf_5047d0af47ad495fb3840fd4e54a28f4~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_06a99cb763d140e2bbcde13b5d47bb9e~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_befd44cfdcc84f20ac5dbe688acf8079~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_bfb0d979a68f4df9b12128a3bacdebdf~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_ffc420fe577049c2970aef640ebad84c~mv2.png",
-      "https://static.wixstatic.com/media/28d0cf_c26fd3bfff6a409ab09ae1c96dabc9b5~mv2.gif"
-    ],
-    "body": [
-      "Model showcase of the full 3D pipeline. I did the concept art, sculpt, retopology, UVs, rigging, texturing, and a final animation to take it for a spin.",
-      "Please check out this article following how I turn this model into a Camera Motion Trackable .vrm format: https://medium.com/@alextangnt/creating-a-full-body-camera-motion-tracking-3d-model-94671373e66c"
-    ],
-    "links": [],
-    "views": {
-      "video": {
-        "src": "https://video.wixstatic.com/video/28d0cf_ff16bd5c7c8e498eb53158757611599e/1080p/mp4/file.mp4"
-      }
-    },
-    "fullPage": false
-  },
   "xiang-gao": {
     "title": "XIANG GAO",
-    "tag": "2D Animation, Graphic Design, Video Compositing",
+    "tag": "2D Animation, Graphic Design, Video Compositing, Group Project",
     "description": "XIANG GAO is an animated adaptation of the short story ‘向杲’ from the classic short story anthology “Strange Tales from a Chinese Studio.”",
     "tools": "Clip Studio Paint, Premiere Pro",
     "role": "Concept Art, Keyframes, Graphic Design, Compositing",
@@ -292,6 +234,62 @@ window.projectLibrary = {
     },
     "fullPage": false
   },
+  "specu-scoper-5000": {
+    "title": "SPECU-SCOPER-5000",
+    "tag": "UI, Game Development, Hackathon",
+    "description": "Fall 2023 Hackathon project for the theme \"Space!\"",
+    "tools": "p5.js, p5play",
+    "role": "",
+    "year": "Fall 2023",
+    "image": "https://static.wixstatic.com/media/28d0cf_f82695c714304374b930e7a3d48b0476~mv2.gif",
+    "link": "project.html?project=specu-scoper-5000",
+    "gallery": [],
+    "body": [
+      "Fall 2023 Hackathon project for the theme \"Space!\"",
+      "Unravel the secrets of real exoplanets by gathering information and running tests in this exploration game to determine if they could harbor life… whether alien, or human colonies!",
+      "Team of 4, made in just over 13 hours",
+      "SECOND PLACE WINNER"
+    ],
+    "links": [],
+    "views": {
+      "p5": {
+        "src": "projects/specu-scoper5000/index.html"
+      }
+    },
+    "embedStyle": {
+      "background": "rgb(24,42,109)"
+    },
+    "fullPage": true
+  },
+  "memory-garbage-collection": {
+    "title": "Memory Garbage Collection",
+    "tag": "UI, Game Development, Hackathon",
+    "description": "Fall 2024 Hackathon project for the theme “Cyberpunk”",
+    "tools": "p5js",
+    "role": "",
+    "year": "Fall 2024",
+    "image": "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif",
+    "link": "project.html?project=memory-garbage-collection",
+    "gallery": [
+      "https://static.wixstatic.com/media/28d0cf_8fba65b8031e43cb97649ad7ef42f54a~mv2.gif"
+    ],
+    "body": [
+      "Fall 2024 Hackathon project for the theme “Cyberpunk”",
+      "Turn your camera on! A two player game - player 1 with their hand on camera, player 2 on the keys.  Player 1 takes apart the body, and player 2 enters commands.",
+      "The future is now, but after a bombastic life, our dead bodies brimming with cybernetic enhancements need to be cut free of them before going into the incinerator. It’s your job to do that— or things will get explosive, to say the least!",
+      "Team of 4, made in just over 13 hours",
+      "MOST CREATIVE PRIZE (Sponsor Award by theTradeDesk)"
+    ],
+    "links": [],
+    "views": {
+      "p5": {
+        "src": "projects/memory garbage collection"
+      }
+    },
+    "fullPage": true
+  },
+    
+  
   "tweater": {
     "title": "TWEATER",
     "tag": "Python, Game Design, FFT Algorithm, Procedural Animation",

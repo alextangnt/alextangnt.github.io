@@ -28,6 +28,7 @@ const infoTitle = document.querySelector(".project-info-bar__title");
 const pageBody = document.body;
 const pageHtml = document.documentElement;
 const detailsSection = document.getElementById("projectDetails");
+const backToTop = document.getElementById("backToTop");
 const galleryGrid = document.getElementById("projectGallery");
 const bodyContainer = document.getElementById("projectBody");
 const linksContainer = document.getElementById("projectLinks");
@@ -216,10 +217,48 @@ if (galleryGrid) {
   });
 }
 
+const renderBody = (html) => {
+  if (!bodyContainer) return;
+  bodyContainer.innerHTML = html;
+
+  const images = Array.from(bodyContainer.querySelectorAll("img"));
+  images.forEach((img) => {
+    if (img.closest("figure")) return;
+    const caption = (img.getAttribute("alt") || "").trim();
+    if (!caption) return;
+    const figure = document.createElement("figure");
+    figure.className = "project-body__figure";
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = caption;
+    img.parentNode.insertBefore(figure, img);
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+  });
+};
+
 if (bodyContainer) {
-  bodyContainer.innerHTML = (projectContent.body || [])
-    .map((paragraph) => `<p>${paragraph}</p>`)
-    .join("");
+  const rawBody = projectContent.body;
+
+  if (typeof rawBody === "string") {
+    if (rawBody.trim().toLowerCase().endsWith(".md")) {
+      fetch(rawBody)
+        .then((response) => (response.ok ? response.text() : Promise.reject(response)))
+        .then((markdown) =>
+          renderBody(window.marked ? window.marked.parse(markdown) : `<p>${markdown}</p>`)
+        )
+        .catch(() => renderBody(`<p>${rawBody}</p>`));
+    } else if (window.marked && /[#*_`\\[]/.test(rawBody)) {
+      renderBody(window.marked.parse(rawBody));
+    } else {
+      renderBody(`<p>${rawBody}</p>`);
+    }
+  } else {
+    renderBody(
+      (rawBody || [])
+        .map((paragraph) => `<p>${paragraph}</p>`)
+        .join("")
+    );
+  }
 }
 
 if (linksContainer) {
@@ -263,6 +302,16 @@ if (infoBar) {
     }
     if (nowOpen && detailsSection) {
       detailsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
+
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    if (projectScroll) {
+      projectScroll.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
 }

@@ -6,12 +6,12 @@ let s2 = 120;
 let cx = -s;
 let cy = -s;
 
-let ps = 7;
+let ps = 10;
 let psx = ps; // must be int
 let psy = ps*2; // must be int
 let psc = ps*2.4;
 
-let w = 640;
+let w = 720;
 let h = 480;
 let left = -w/2;
 let right = w/2;
@@ -220,7 +220,7 @@ function draw(){
                 let ch = String.fromCharCode(rc);
                 currChar = ch;
 
-                let rdel = int(random(0,3));
+                let rdel = int(random(0,2));
                 if (rdel == 0){
                     mouseMoves[i][j] = false;
                 }
