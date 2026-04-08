@@ -58,7 +58,7 @@ window.projectLibrary = {
     "link": "project.html?project=finger-lickin-good",
     "gallery": [],
     "body": [
-      "Well now you can. This project uses templates for ML5-Next-Gen's face and hand tracking, along with the Matter.js physics library to simulate several mouthfuls of actions on your wobbly fingers."
+      "Well now you can. This project uses ML5-Next-Gen's face and hand tracking, along with the Matter.js physics library to simulate several mouthfuls of actions on your wobbly fingers."
     ],
     "links": [],
     "views": {
