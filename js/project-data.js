@@ -14,6 +14,9 @@ window.projectLibrary = {
     "views": {
       "site": {
         "src": "https://alextangnt.github.io/dialomic/"
+      },
+      "repo": {
+        "src": "https://github.com/alextangnt/dialomic"
       }
     },
     "fullPage": false

@@ -249,6 +249,7 @@ const renderBody = (html, baseUrl = null) => {
   bodyContainer.innerHTML = html;
 
   const images = Array.from(bodyContainer.querySelectorAll("img"));
+  const links = Array.from(bodyContainer.querySelectorAll("a"));
   images.forEach((img) => {
     if (img.closest("figure")) return;
     const caption = (img.getAttribute("alt") || "").trim();
@@ -274,40 +275,106 @@ const renderBody = (html, baseUrl = null) => {
         return;
       }
     });
+    links.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      if (!href) return;
+      if (/^(https?:|mailto:|tel:|#|\/)/i.test(href)) return;
+      try {
+        const resolved = new URL(href, baseUrl).toString();
+        link.setAttribute("href", resolved);
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noreferrer noopener");
+      } catch {
+        return;
+      }
+    });
   }
 };
 
-if (bodyContainer) {
-  const rawBody = projectContent.body;
-
-  if (typeof rawBody === "string") {
-    if (rawBody.trim().toLowerCase().endsWith(".md")) {
-      const baseUrl = new URL(rawBody, window.location.href);
-      fetch(rawBody)
-        .then((response) => (response.ok ? response.text() : Promise.reject(response)))
-        .then((markdown) =>
-          renderBody(
-            window.marked ? window.marked.parse(markdown) : `<p>${markdown}</p>`,
-            baseUrl
-          )
-        )
-        .catch(() => renderBody(`<p>${rawBody}</p>`));
-    } else if (window.marked && /[#*_`\\[]/.test(rawBody)) {
-      renderBody(window.marked.parse(rawBody));
-    } else {
-      renderBody(`<p>${rawBody}</p>`);
+const fetchRepoReadme = async (repoUrl) => {
+  if (!repoUrl) return null;
+  let url;
+  try {
+    url = new URL(repoUrl);
+  } catch {
+    return null;
+  }
+  if (url.hostname !== "github.com") return null;
+  const parts = url.pathname.split("/").filter(Boolean);
+  if (parts.length < 2) return null;
+  const owner = parts[0];
+  const repo = parts[1];
+  const base = `https://raw.githubusercontent.com/${owner}/${repo}`;
+  const candidates = [`${base}/main/README.md`, `${base}/master/README.md`];
+  for (const candidate of candidates) {
+    try {
+      const response = await fetch(candidate);
+      if (response.ok) {
+        return { markdown: await response.text(), baseUrl: candidate };
+      }
+    } catch {
+      continue;
     }
+  }
+  return null;
+};
+
+if (bodyContainer) {
+  const repoView = projectContent.views && projectContent.views.repo;
+  const repoSrc = repoView && (repoView.src || repoView.url);
+
+  if (repoSrc) {
+    fetchRepoReadme(repoSrc)
+      .then((result) => {
+        if (!result) {
+          renderBody("<p>README not available.</p>");
+          return;
+        }
+        const html = window.marked ? window.marked.parse(result.markdown) : `<p>${result.markdown}</p>`;
+        renderBody(html, result.baseUrl);
+      })
+      .catch(() => renderBody("<p>README not available.</p>"));
   } else {
-    renderBody(
-      (rawBody || [])
-        .map((paragraph) => `<p>${paragraph}</p>`)
-        .join("")
-    );
+    const rawBody = projectContent.body;
+
+    if (typeof rawBody === "string") {
+      if (rawBody.trim().toLowerCase().endsWith(".md")) {
+        const baseUrl = new URL(rawBody, window.location.href);
+        fetch(rawBody)
+          .then((response) => (response.ok ? response.text() : Promise.reject(response)))
+          .then((markdown) =>
+            renderBody(
+              window.marked ? window.marked.parse(markdown) : `<p>${markdown}</p>`,
+              baseUrl
+            )
+          )
+          .catch(() => renderBody(`<p>${rawBody}</p>`));
+      } else if (window.marked && /[#*_`\\[]/.test(rawBody)) {
+        renderBody(window.marked.parse(rawBody));
+      } else {
+        renderBody(`<p>${rawBody}</p>`);
+      }
+    } else {
+      renderBody(
+        (rawBody || [])
+          .map((paragraph) => `<p>${paragraph}</p>`)
+          .join("")
+      );
+    }
   }
 }
 
 if (linksContainer) {
-  linksContainer.innerHTML = (projectContent.links || [])
+  const baseLinks = projectContent.links || [];
+  const isP5Project = viewKeys.some((key) => key.toLowerCase() === "p5");
+  const rawLink = isP5Project
+    ? {
+        label: "RAW PROJECT",
+        url: `./p5-${resolvedKey}.html`
+      }
+    : null;
+  const links = rawLink ? [...baseLinks, rawLink] : baseLinks;
+  linksContainer.innerHTML = links
     .map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer noopener">${link.label}</a>`)
     .join("");
 }

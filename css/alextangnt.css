@@ -150,8 +150,7 @@ body {
   height: 40px;
   font-size: 1.6rem;
   line-height: 1;
-  padding: 0 10px;
-  padding-bottom: 2px;
+  padding: 2px 10px 0;
 }
 
 .topbar__gallery {
@@ -619,6 +618,7 @@ body {
   display: grid;
   gap: 10px;
   max-width: min(75vw, 980px);
+  width: 100%;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -628,6 +628,24 @@ body {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+.project-body video,
+.project-body iframe {
+  max-width: 100%;
+}
+
+.project-body p,
+.project-body a,
+.project-body li,
+.project-body blockquote {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.project-body pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .project-body__figure {
@@ -791,6 +809,7 @@ body {
 
 .view-toggle--p5:hover {
   transform: translateX(-50%) translateY(-1px);
+  background: rgba(0, 0, 0, 0.6) !important;
 }
 
 .view-toggle--p5.is-hidden {

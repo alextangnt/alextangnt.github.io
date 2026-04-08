@@ -62,3 +62,5 @@ Finally, with Codex's help setting up a GitHub workflow and a Vite server to sta
 * Get some speech bubbles in there! Handle overlap and layering logic! Figure out who's saying what.
 * Import some background presets to use.
 * Procedural animation in panels?
+
+![alt text](image.png)

@@ -1,0 +1,135 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\pagestyle{empty}
+
+% Spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing*{\section}{0pt}{4pt}{1pt}
+
+% Section style
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+
+% Compact lists
+\setlist[itemize]{leftmargin=*, itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
+
+% Flush tabular blocks
+\setlength{\tabcolsep}{0pt}
+
+\newcommand{\ressection}[1]{%
+  \section*{#1}
+  \vspace{-6pt}
+  {\color{black}\rule{\textwidth}{0.6pt}}\vspace{0pt}
+}
+
+\newcommand{\resheading}[2]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabularx}
+}
+
+\newcommand{\resrole}[3]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textit{#1} & \textit{#2} \\
+  \end{tabularx}
+  #3
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\Large \textbf{Alex Tan}}\\
+Aspiring Technical Artist \textbar{} 3D Modeling \& Animation \textbar{} Interactive Art \textbar{} Creative Technology\\
+Irvine, California \textbar{} +1-949-632-9563 \textbar{} alextangnt@gmail.com \textbar{} https://alextangnt.github.io/
+\end{center}
+\vspace{-8pt}
+
+\ressection{Summary}
+Creatively driven multimedia artist focusing on the intersection between technology and art. Designing interactive graphical tools and custom workflows for artists to tell stories. Experienced with Unity, Python, JavaScript, Three.js, the Adobe Suite, and Maya.
+
+\ressection{Skills}
+\textbf{Languages and Game Development:} Unity, Python, C\#, C, JavaScript, HTML, Three.js, SML\\
+\textbf{3D Pipeline:} Character Modeling, Hard Surface Modeling, Texturing, Rigging, Animation, and Rendering in Maya and Blender\\
+\textbf{Digital Art and Composition:} Photoshop, Illustrator, Premiere, Clip Studio Paint\\
+\textbf{Interests/Hobbies:} 2D \& 3D Character Animation, Character Design \& Concept Art, Creative Coding
+
+\ressection{Education}
+\resheading{CARNEGIE MELLON UNIVERSITY}{Pittsburgh, Pennsylvania}
+\resrole{Bachelor of Computer Science and Arts (BCSA) in Computer Science and Art}{\textit{08/2022 -- 05/2026}}{%
+GPA: 3.79/4.0\\
+Minor in Game Design and Animation
+}
+
+\ressection{Experience}
+\resheading{FREELANCE ARTIST}{Irvine, California}
+\resrole{Self Employed}{\textit{2019 -- Present}}{%
+\begin{itemize}
+  \item Taking regular commissioned work from various clients for illustration \& graphic design
+\end{itemize}
+}
+
+\resheading{CHARACTER DESIGN INSTRUCTOR}{Wilmington, Delaware}
+\resrole{Class101}{\textit{11/2020 -- 11/2023}}{%
+\begin{itemize}
+  \item Designed and filmed curriculum for 32 week online course on designing characters.
+  \item Supported and gave feedback to +100 students.
+\end{itemize}
+}
+
+\resheading{ALUMNI SUMMER TA INTERN}{Palo Alto, California}
+\resrole{AI4ALL}{\textit{May 2021 -- July 2021}}{%
+\begin{itemize}
+  \item Assisted in observation data collection of program operations for AI4ALL main office.
+  \item Conducted meetings with research mentors in collaboration with fellow TAs.
+  \item Designed surveys to benchmark student engagement.
+\end{itemize}
+}
+
+\ressection{Projects}
+\resheading{DIALOMIC}{\textit{11/2025 -- Present}}
+\resrole{Web tool development with HTML, JS, Three.js, Node.js}{}{%
+\begin{itemize}
+  \item Web tool for artists and writers to convert Twine stories into procedurally formatted, 3D animated webtoons.
+  \item Prototyping and developing tool that communicates between Twine generated HTML + JS + Three.js for rendering.
+  \item Creating custom workflows and functionality by combining previously established formats. Parsing user-written code.
+\end{itemize}
+}
+
+\resheading{THE BITTER \& other games}{\textit{02/2023 -- Present}}
+\resrole{3D Artist, Animator, Game Designer}{}{%
+\begin{itemize}
+  \item 2.5D mystery puzzle on the high seas, Python game controlled by the pitch of your voice, and more.
+  \item Modeled, rigged, and animated low-poly 3D character models and assets in Maya; developed custom shaders for Unity.
+  \item Prototyped, iterated, and developed 2D game in Python. Implemented Cooley Tukey FFT algorithm for pitch detection.
+\end{itemize}
+}
+
+\resheading{AI4ALL RESEARCH+OUTREACH}{\textit{07/2019 -- 05/2022}}
+\resrole{Changemaker \& CreAIte Chapter Lead}{}{%
+\begin{itemize}
+  \item Trained and tested various ML algorithms to classify ethnicities based on SNPs of DNA in genomics.
+  \item Proposed research for sketch analysis and trained computer vision models to detect emotions and sentiment in drawings.
+  \item Hosted neural art workshops for middle and high school students, taught fundamentals of artificial intelligence.
+\end{itemize}
+}
+
+\ressection{Activities}
+\resheading{HACK CMU}{\textit{Fall 2022, 2023, 2024}}
+\resrole{Team One Pot Hot Shots}{}{%
+\begin{itemize}
+  \item Team participated in 24 hour hackathon and won various awards 3 years in a row.
+  \item Game programmer and interaction designer for Specu-Scoper 5000.
+  \item Implemented ML5 hand tracking in Memory Garbage Collection.
+\end{itemize}
+}
+
+\end{document}
