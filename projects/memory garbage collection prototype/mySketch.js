@@ -3,6 +3,10 @@ let mainCanvas;
 const BASE_W = 1620;
 const BASE_H = 1080;
 let frameNowMs = 0;
+const DEBUG_MODE = true; // Toggle debug controls here.
+let debugTimerPaused = false;
+let debugPausedRemainingMs = 0;
+const BODY_ENTER_SPEED = 9;
 
 function preload() {
 	importDrawings();
@@ -136,7 +140,13 @@ function getElasticSlidePosition(elapsedMs, fromY, toY) {
 
 function draw() {
 	frameNowMs = millis();
+	if (DEBUG_MODE && debugTimerPaused) {
+		timeLeft = frameNowMs + debugPausedRemainingMs;
+	}
 	framesCounted++;
+	let body1ReadyForGrab = false;
+	let body2ReadyForGrab = false;
+	let body3ReadyForGrab = false;
 	image(bg, wc, hc);
 	image(l1, wc, hc);
 	image(l2, wc, hc);
@@ -146,6 +156,7 @@ function draw() {
 			if (bodyCount == 1) 
 			{
 				drawBody1(wc, hc);
+				body1ReadyForGrab = true;
 			}
 			if (bodyCount == 2)
 			{
@@ -153,7 +164,7 @@ function draw() {
 		}
 	else
 		{
-			speed = 6;
+			speed = BODY_ENTER_SPEED;
 			t = getElasticSlidePosition(speed * framesCounted, -hc, hc);
 
 			//circle(t, hc, 20);
@@ -163,12 +174,14 @@ function draw() {
 				if (!isTimeUp)
 				{
 					drawBody1(wc, t);
+					body1ReadyForGrab = abs(t - hc) < 24;
 				}
 				else
 					{
-						speed = 6;
+						speed = BODY_ENTER_SPEED;
 						t = getElasticSlidePosition(speed * (frameNowMs - incinerateTimer), -hc, hc * 2);
 						drawBody1(wc, t+hc);
+						body1ReadyForGrab = false;
 					}
 			}
 			else if (bodyCount == 2) 
@@ -181,12 +194,14 @@ function draw() {
 							}
 
 					drawBody2(wc, t);
+					body2ReadyForGrab = abs(t - hc) < 24;
 				}
 				else
 					{
-						speed = 6;
+						speed = BODY_ENTER_SPEED;
 						t = getElasticSlidePosition(speed * (frameNowMs - incinerateTimer), -hc, hc * 2);
 						drawBody2(wc, t+hc);
+						body2ReadyForGrab = false;
 					}
 			}
 			else if (bodyCount == 3) 
@@ -198,16 +213,23 @@ function draw() {
 							body3Setted = true;
 							}
 					drawBody3(wc, t);
+					body3ReadyForGrab = abs(t - hc) < 24;
 				}
 				else
 					{
-						speed = 6;
+						speed = BODY_ENTER_SPEED;
 						t = getElasticSlidePosition(speed * (frameNowMs - incinerateTimer), -hc, hc * 2);
 						drawBody3(wc, t+hc);
+						body3ReadyForGrab = false;
 					}
 			}
 			
 		}
+	if (typeof setBodyGrabbablesActive === "function") {
+		setBodyGrabbablesActive(1, body1ReadyForGrab);
+		setBodyGrabbablesActive(2, body2ReadyForGrab);
+		setBodyGrabbablesActive(3, body3ReadyForGrab);
+	}
 	image(chutes, wc, hc);
 	
 	xNoise = getXNoiseValue();
@@ -460,6 +482,10 @@ function scan(){
 }
 
 function keyTyped() {
+	if (DEBUG_MODE && key == " ") {
+		// Space is handled in keyPressed for debug timer pause.
+		return false;
+	}
 	if (key == " ")
 		{
 				typable = false;
@@ -534,6 +560,37 @@ function keyTyped() {
 			entered(-1);
   		typedWord = "";
 		}
+	}
+}
+
+function keyPressed() {
+	if (!DEBUG_MODE) {
+		return;
+	}
+
+	if (keyCode === 32) { // Space
+		debugTimerPaused = !debugTimerPaused;
+		if (debugTimerPaused) {
+			debugPausedRemainingMs = max(0, timeLeft - frameNowMs);
+		} else {
+			timeLeft = frameNowMs + debugPausedRemainingMs;
+		}
+		return false;
+	}
+
+	if (keyCode === RIGHT_ARROW) {
+		// Force only the current timer to end and run normal body exit/advance flow.
+		debugTimerPaused = false;
+		debugPausedRemainingMs = 0;
+		timeLeft = frameNowMs;
+		timesUp();
+		return false;
+	}
+
+	if (keyCode === ESCAPE) {
+		// Full game restart.
+		window.location.reload();
+		return false;
 	}
 }
 
